@@ -1,0 +1,91 @@
+﻿@model webDb.tblSales
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>tblSales</h4>
+<hr />
+      <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="tblSellerId" type="hidden" />
+            <input asp-for="Id" type="hidden" />
+            @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-4">
+
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="Time" class="control-label"></label>
+                        <input asp-for="Time" class="form-control" />
+                        <span asp-validation-for="Time" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Des" class="control-label"></label>
+                        <textarea asp-for="Des" class="form-control"></textarea>
+                    
+                        <span asp-validation-for="Des" class="text-danger"></span>
+                    </div>
+                </div>
+                </div>
+        </div><div class="col-md-4">
+
+            <div class="card bg-primary bg-opacity-25">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label asp-for="MabFrosh" class="control-label"></label>
+                        <input asp-for="MabFrosh" class="form-control" />
+                        <span asp-validation-for="MabFrosh" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MabH" class="control-label"></label>
+                        <input asp-for="MabH" class="form-control" />
+                        <span asp-validation-for="MabH" class="text-danger"></span>
+                    </div>
+              
+                    <div class="form-group">
+                        <label asp-for="Darsad" class="control-label"></label>
+                        <input asp-for="Darsad" class="form-control" />
+                        <span asp-validation-for="Darsad" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Bed" class="control-label"></label>
+                        <input asp-for="Bed" readonly class="form-control" />
+                        <span asp-validation-for="Bed" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div><div class="col-md-4">
+            <div class="card bg-success bg-opacity-25">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="Bes" class="control-label"></label>
+                        <input asp-for="Bes" class="form-control" />
+                        <span asp-validation-for="Bes" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+  
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

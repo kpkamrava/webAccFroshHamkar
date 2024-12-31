@@ -11,6 +11,7 @@ using webDb;
 namespace webDb.Migrations
 {
     [DbContext(typeof(dbContext))]
+    
     partial class dbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

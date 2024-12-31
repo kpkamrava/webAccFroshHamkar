@@ -15,13 +15,10 @@ namespace webAccFroshHamkar.Controllers
 
         public IActionResult Index()
         {
-            var db = new webDb.dbContext();
-
-            var x = db.tblSeller.ToList();
-
-
-            return View(x);
+            return View();
         }
+        
+        
 
         public IActionResult Privacy()
         {

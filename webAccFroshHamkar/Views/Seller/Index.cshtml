@@ -1,0 +1,47 @@
+﻿@model IEnumerable<webDb.tblSeller>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Darsad)
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Darsad)
+            </td>
+           
+            <td>
+
+                    <a asp-action="index" asp-controller="sales" asp-route-idSeler="@item.Id">فعالیت</a>|
+                    <a asp-action="Create" asp-route-id="@item.Id">ویرایش</a>|
+                    <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('آیا مطمئن هستید که حذف کنید؟')">حذف</a>
+
+
+ 
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

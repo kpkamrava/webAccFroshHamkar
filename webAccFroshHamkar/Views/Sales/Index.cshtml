@@ -1,0 +1,88 @@
+﻿@model IEnumerable<webDb.tblSales>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" asp-route-idSeler="@ViewBag.idSeler">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Des)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MabFrosh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MabH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MabHashie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Darsad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mande)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+                <td class="@(item.Bed>0?"table-primary":"table-success")  ">
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Des)
+            </td>
+            <td>
+                @item.MabFrosh.GetValueOrDefault().ToString("###,###")
+            </td>
+            <td>
+                    @item.MabH.GetValueOrDefault().ToString("###,###")
+            </td>
+            <td>
+                    @item.MabHashie.GetValueOrDefault().ToString("###,###")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Darsad)
+            </td>
+            <td>
+                    @item.Bed.GetValueOrDefault().ToString("###,###")
+            </td>
+            <td>
+                    @item.Bes.GetValueOrDefault().ToString("###,###")
+            </td>
+            <td>
+                    @item.Mande.ToString("###,###")
+            </td>
+          
+            <td>
+
+                    <a asp-action="Create" asp-route-id="@item.Id">Edit</a>|
+                    <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('آیا مطمئن هستید که حذف کنید؟')">Delete</a>
+                     
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
